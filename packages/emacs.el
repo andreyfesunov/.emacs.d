@@ -15,3 +15,9 @@
   :init
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 2))
+
+; Esc as Cancel button
+
+(use-package emacs
+  :init
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit))
