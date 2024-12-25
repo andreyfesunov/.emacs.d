@@ -21,3 +21,9 @@
 (use-package emacs
   :init
   (global-set-key (kbd "<escape>") 'keyboard-escape-quit))
+
+; Backups
+
+(use-package emacs
+  :config
+  (setq backup-directory-alist `(("." . "~/.saves"))))

@@ -6,6 +6,7 @@
 (load-file "~/.emacs.d/client/encoding.el")
 
 (load-file "~/.emacs.d/packages/gcmh.el")
+(load-file "~/.emacs.d/packages/exec_path_from_shell.el")
 (load-file "~/.emacs.d/packages/emacs.el")
 (load-file "~/.emacs.d/packages/general.el")
 (load-file "~/.emacs.d/packages/evil.el")
@@ -18,5 +19,11 @@
 (load-file "~/.emacs.d/packages/doom_themes.el")
 (load-file "~/.emacs.d/packages/nyan_mode.el")
 (load-file "~/.emacs.d/packages/commentary.el")
+(load-file "~/.emacs.d/packages/ripgrep.el")
 (load-file "~/.emacs.d/packages/vterm/vterm.el")
 (load-file "~/.emacs.d/packages/vterm/vterm_toggle.el")
+
+(load-file "~/.emacs.d/packages/lsp/company_mode.el")
+(load-file "~/.emacs.d/packages/lsp/rust_mode.el")
+(load-file "~/.emacs.d/packages/lsp/typescript_mode.el")
+(load-file "~/.emacs.d/packages/lsp/eglot.el")
