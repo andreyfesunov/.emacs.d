@@ -24,6 +24,7 @@
 (load-file "~/.emacs.d/packages/vterm/vterm_toggle.el")
 
 (load-file "~/.emacs.d/packages/lsp/company_mode.el")
-(load-file "~/.emacs.d/packages/lsp/rust_mode.el")
 (load-file "~/.emacs.d/packages/lsp/typescript_mode.el")
-(load-file "~/.emacs.d/packages/lsp/eglot.el")
+(load-file "~/.emacs.d/packages/lsp/php_mode.el")
+(load-file "~/.emacs.d/packages/lsp/lsp_ui.el")
+(load-file "~/.emacs.d/packages/lsp/lsp_mode.el")
