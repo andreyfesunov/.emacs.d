@@ -1,9 +1,6 @@
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :init
-  (setq lsp-keymap-prefix "SPC l")
-  :general
-  (leader-keys
-    "l" '(:ignore t :which-key "lsp"))
+  (setq lsp-keymap-prefix "C-l")
   :config
   (lsp-enable-which-key-integration t))
