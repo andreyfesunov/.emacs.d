@@ -1,6 +1,9 @@
 ;; package manager
 (load-file "~/.emacs.d/core/straight.el")
 
+;; functions
+(load-file "~/.emacs.d/functions/reload-init-file.el")
+
 ;; client
 (load-file "~/.emacs.d/client/theme.el")
 (load-file "~/.emacs.d/client/ui.el")
