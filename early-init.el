@@ -1,5 +1,2 @@
-(push '(menu-bar-lines . 0) default-frame-alist) ; To hide element on startup (displayed for a few milliseconds)
-(push '(tool-bar-lines . 0) default-frame-alist) ; To hide element on startup (displayed for a few milliseconds)
-(push '(vertical-scroll-bars) default-frame-alist) ; To hide element on startup (displayed for a few milliseconds)
-
-(setq package-enable-at-startup nil) ; From straight.el docs (to prevent package.el from loading)
+;; core/straight.el hook aimed to prevent package.el loading packages prior to their init-file loading
+(setq package-enable-at-startup nil)

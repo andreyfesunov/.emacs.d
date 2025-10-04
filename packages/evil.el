@@ -1,9 +1,10 @@
-; Evil mode 
+;; https://github.com/emacs-evil/evil
 
 (use-package evil
-  :demand ; No lazy loading
+  :straight t
+  :demand
   :init
   (setq evil-want-keybinding nil)
-  (setq evil-want-C-u-scroll t)
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  (evil-set-leader '(normal visual) (kbd "SPC")))
