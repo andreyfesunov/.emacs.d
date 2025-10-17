@@ -9,6 +9,9 @@
 (load-file "~/.emacs.d/packages/evil.el")
 (load-file "~/.emacs.d/packages/evil-collection.el")
 (load-file "~/.emacs.d/packages/which-key.el")
+(load-file "~/.emacs.d/packages/treesit-auto.el")
+(load-file "~/.emacs.d/packages/corfu.el")
+(load-file "~/.emacs.d/packages/eglot.el")
 
 ;; client
 (load-file "~/.emacs.d/client/theme.el")

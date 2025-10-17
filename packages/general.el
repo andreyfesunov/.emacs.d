@@ -12,4 +12,11 @@
 (leader-def
  :keymaps 'normal
  ;; unbind SPC and give it a title for which-key (see echo area)
- "" '(nil :which-key "my lieutenant general prefix"))
+ "" '(nil :which-key "my lieutenant general prefix")
+
+ ;; Autocomplete
+ "c" '(:ignore t :which-key "completion")
+ "c c" '(company-complete :which-key "complete")
+ "c f" '(company-files :which-key "files")
+ "c d" '(company-dabbrev :which-key "dabbrev")
+ "c s" '(company-yasnippet :which-key "snippet"))
