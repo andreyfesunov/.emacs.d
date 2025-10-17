@@ -12,6 +12,7 @@
 (load-file "~/.emacs.d/packages/treesit-auto.el")
 (load-file "~/.emacs.d/packages/corfu.el")
 (load-file "~/.emacs.d/packages/eglot.el")
+(load-file "~/.emacs.d/packages/dashboard.el")
 
 ;; client
 (load-file "~/.emacs.d/client/theme.el")
