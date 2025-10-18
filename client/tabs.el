@@ -20,6 +20,7 @@
 (leader-def
   :keymaps 'normal
   "b" '(:ignore t :which-key "buffers")
+  "b <escape>" '(keyboard-escape-quit :which-key t)
   "b n" '(tab-bar-new-tab :which-key "new buffer")
   "b x" '(tab-bar-close-tab :which-key "close buffer")
   "b r" '(tab-bar-rename-tab :which-key "rename buffer"))

@@ -17,6 +17,7 @@
 (load-file "~/.emacs.d/packages/magit.el")
 (load-file "~/.emacs.d/packages/treemacs.el")
 (load-file "~/.emacs.d/packages/diff-hl.el")
+(load-file "~/.emacs.d/packages/devdocs.el")
 
 ;; client
 (load-file "~/.emacs.d/client/theme.el")
