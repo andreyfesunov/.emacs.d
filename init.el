@@ -16,6 +16,7 @@
 (load-file "~/.emacs.d/packages/zoom.el")
 (load-file "~/.emacs.d/packages/magit.el")
 (load-file "~/.emacs.d/packages/treemacs.el")
+(load-file "~/.emacs.d/packages/diff-hl.el")
 
 ;; client
 (load-file "~/.emacs.d/client/theme.el")
