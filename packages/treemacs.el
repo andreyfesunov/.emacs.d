@@ -2,3 +2,6 @@
 
 (use-package treemacs
   :straight t)
+
+(use-package treemacs-evil
+  :straight t)
