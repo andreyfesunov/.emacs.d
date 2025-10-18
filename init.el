@@ -15,6 +15,7 @@
 (load-file "~/.emacs.d/packages/dashboard.el")
 (load-file "~/.emacs.d/packages/zoom.el")
 (load-file "~/.emacs.d/packages/magit.el")
+(load-file "~/.emacs.d/packages/treemacs.el")
 
 ;; client
 (load-file "~/.emacs.d/client/theme.el")
