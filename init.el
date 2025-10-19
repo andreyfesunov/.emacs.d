@@ -19,8 +19,8 @@
 (load-file "~/.emacs.d/packages/diff-hl.el")
 (load-file "~/.emacs.d/packages/devdocs.el")
 (load-file "~/.emacs.d/packages/evil-mc.el")
+(load-file "~/.emacs.d/packages/centaur-tabs.el")
 
 ;; client
 (load-file "~/.emacs.d/client/theme.el")
 (load-file "~/.emacs.d/client/ui.el")
-(load-file "~/.emacs.d/client/tabs.el")

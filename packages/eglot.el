@@ -4,7 +4,7 @@
   :straight t
   :config
   (add-to-list 'eglot-server-programs
-               '((rust-mode rust-ts-mode) . ("rust-analyzer")))
+               '((rust-mode rust-ts-mode) . ("rust-analyzer" :initializationOptions (:check (:command "clippy")))))
 
   (add-to-list 'eglot-server-programs
                '((typescript-mode typescript-ts-mode

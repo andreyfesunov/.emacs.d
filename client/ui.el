@@ -3,6 +3,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(tab-bar-mode -1)
+(mode
 
 ;; line numbers
 
@@ -13,3 +15,7 @@
 
 (column-number-mode 1)
 (line-number-mode 1)
+
+;; bell sound
+
+(setq ring-bell-function 'ignore)
