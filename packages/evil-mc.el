@@ -11,5 +11,5 @@
   :keymaps 'normal
   "m" '(:ignore t :which-key "multicursor")
   "m <escape>" '(keyboard-escape-quit :which-key t)
-  "m t" '(evil-mc-mode :which-key "toggle multicursor"))
+  "m t" '(evil-mc-mode :which-key "toggle multicursor")
   "m u" '(evil-mc-undo-all-cursors :which-key "undo all cursors"))
