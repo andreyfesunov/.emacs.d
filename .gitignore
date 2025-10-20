@@ -5,3 +5,5 @@ url/
 tree-sitter/
 .cache/
 devdocs/
+transient/
+recentf

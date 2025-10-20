@@ -20,6 +20,7 @@
 (load-file "~/.emacs.d/packages/devdocs.el")
 (load-file "~/.emacs.d/packages/evil-mc.el")
 (load-file "~/.emacs.d/packages/centaur-tabs.el")
+(load-file "~/.emacs.d/packages/telephone-line.el")
 
 ;; client
 (load-file "~/.emacs.d/client/theme.el")
