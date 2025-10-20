@@ -1,3 +1,5 @@
+;; https://github.com/dbordak/telephone-line
+
 (use-package telephone-line
   :straight t
   :ensure t
