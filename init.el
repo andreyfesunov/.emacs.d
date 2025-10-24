@@ -21,6 +21,7 @@
 (load-file "~/.emacs.d/packages/evil-mc.el")
 (load-file "~/.emacs.d/packages/centaur-tabs.el")
 (load-file "~/.emacs.d/packages/telephone-line.el")
+(load-file "~/.emacs.d/packages/markdown-mode.el")
 
 ;; client
 (load-file "~/.emacs.d/client/theme.el")
