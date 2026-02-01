@@ -1,28 +1,12 @@
-;; package manager
-(load-file "~/.emacs.d/core/straight.el")
+;; This file replaces itself with the actual configuration at first run.
 
-;; functions
-(load-file "~/.emacs.d/functions/reload-init-file.el")
-
-;; packages
-(load-file "~/.emacs.d/packages/general.el")
-(load-file "~/.emacs.d/packages/evil.el")
-(load-file "~/.emacs.d/packages/evil-collection.el")
-(load-file "~/.emacs.d/packages/which-key.el")
-(load-file "~/.emacs.d/packages/treesit-auto.el")
-(load-file "~/.emacs.d/packages/corfu.el")
-(load-file "~/.emacs.d/packages/eglot.el")
-(load-file "~/.emacs.d/packages/dashboard.el")
-(load-file "~/.emacs.d/packages/zoom.el")
-(load-file "~/.emacs.d/packages/magit.el")
-(load-file "~/.emacs.d/packages/treemacs.el")
-(load-file "~/.emacs.d/packages/diff-hl.el")
-(load-file "~/.emacs.d/packages/devdocs.el")
-(load-file "~/.emacs.d/packages/evil-mc.el")
-(load-file "~/.emacs.d/packages/centaur-tabs.el")
-(load-file "~/.emacs.d/packages/telephone-line.el")
-(load-file "~/.emacs.d/packages/markdown-mode.el")
-
-;; client
-(load-file "~/.emacs.d/client/theme.el")
-(load-file "~/.emacs.d/client/ui.el")
+;; We can't tangle without org!
+(require 'org)
+;; Open the configuration
+(find-file (concat user-emacs-directory "config.org"))
+;; tangle it
+(org-babel-tangle)
+;; load it
+(load-file (concat user-emacs-directory "config.el"))
+;; finally byte-compile it
+(byte-compile-file (concat user-emacs-directory "config.el"))

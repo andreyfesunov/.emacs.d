@@ -1,0 +1,110 @@
+#+title: Emacs configuration file
+#+author: Andrey Fesunov
+#+property: header-args :tangle ~/.emacs.d/config.el
+#+startup: content
+* GNU Emacs config
+
+** Lexical Scoping
+
+To prevent warning on compile, we have to pass first line of configuration:
+
+#+begin_src emacs-lisp
+  ;;; -*- lexical-binding: t -*-
+#+end_src
+** Package Management
+
+Using [[https://github.com/radian-software/straight.el][straight]] package manager.
+
+#+begin_src emacs-lisp
+  (defvar bootstrap-version)
+  (let ((bootstrap-file (expand-file-name "straight/repos/straight.el/bootstrap.el" (or (bound-and-true-p straight-base-dir) user-emacs-directory)))
+        (bootstrap-version 7))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer (url-retrieve-synchronously "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el" 'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+
+  (straight-use-package 'use-package)
+#+end_src
+** Evil
+
+#+begin_src emacs-lisp
+  (straight-use-package '(evil :host github
+                		     :repo "emacs-evil/evil"))
+  (use-package evil
+    :config (evil-mode t))
+  (use-package evil-collection
+    :after (evil)
+    :straight (evil-collection :type git
+                		     :host github
+                		     :repo "emacs-evil/evil-collection"))
+#+end_src
+*** my/edit-src-block, my/format-elisp-string, my/format-elisp-src-blocks
+
+Functions to format elisp blocks in org-mode. Thanks to [[https://www.reddit.com/r/emacs/comments/9tp79o/elispformat_in_org_mode/][reddit]] guys.
+
+#+begin_src emacs-lisp
+  (defun my/edit-src-block (src fn language)
+    "Replace SRC org-element's value property with the result of FN.
+                FN is a function that operates on org-element's value and returns a string.
+                LANGUAGE is a string referring to one of orb-babel's supported languages.
+                (https://orgmode.org/manual/Languages.html#Languages)"
+    (let ((src-language (org-element-property :language src))
+          (value (org-element-property :value src)))
+      (when (string= src-language language)
+        (let ((copy (org-element-copy src)))
+          (org-element-put-property copy :value
+                                    (funcall fn value))
+          (org-element-set-element src copy)))))
+
+  (defun my/format-elisp-string (string)
+    "Indents elisp buffer string and reformats dangling parens."
+    (with-temp-buffer
+      (let ((inhibit-message t))
+        (emacs-lisp-mode)
+        (insert 
+         (replace-regexp-in-string "[[:space:]]*
+                [[:space:]]*)" ")" string))
+        (indent-region (point-min) (point-max))
+        (buffer-substring (point-min) (point-max)))))
+
+  (defun my/format-elisp-src-blocks ()
+    "Format Elisp src blocks in the current org buffer"
+    (interactive)
+    (save-mark-and-excursion
+      (let ((AST (org-element-parse-buffer)))
+        (org-element-map AST 'src-block
+          (lambda (element) 
+            (my/edit-src-block element #'my/format-elisp-string "emacs-lisp")))
+        (delete-region (point-min) (point-max))
+        (insert (org-element-interpret-data AST)))))
+#+end_src
+** magit
+
+#+begin_src emacs-lisp
+  (use-package magit
+    :straight t
+    :bind (("C-x g" . magit-status)))
+#+end_src
+*** evil-magit
+
+#+begin_src emacs-lisp
+  (use-package evil-magit
+    :straight t
+    :after (evil magit))
+#+end_src
+** Configuration
+
+*** Backups
+
+#+begin_src emacs-lisp
+  (setq backup-directory-alist
+        `(("." . ,(expand-file-name "backups" user-emacs-directory))))
+#+end_src
+*** Autosaves
+
+#+begin_src emacs-lisp
+  (setq auto-save-file-name-transforms
+        `((".*" ,(expand-file-name "auto-save/" user-emacs-directory) t)))
+#+end_src
