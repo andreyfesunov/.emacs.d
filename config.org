@@ -32,8 +32,12 @@ Using [[https://github.com/radian-software/straight.el][straight]] package manag
 #+begin_src emacs-lisp
   (straight-use-package '(evil :host github
                     	     :repo "emacs-evil/evil"))
+
+  (setq evil-want-keybinding nil)
+  
   (use-package evil
     :config (evil-mode t))
+
   (use-package evil-collection
     :after (evil)
     :straight (evil-collection :type git
@@ -46,10 +50,6 @@ Functions to format elisp blocks in org-mode. Thanks to [[https://www.reddit.com
 
 #+begin_src emacs-lisp
   (defun my/edit-src-block (src fn language)
-    "Replace SRC org-element's value property with the result of FN.
-                          FN is a function that operates on org-element's value and returns a string.
-                          LANGUAGE is a string referring to one of orb-babel's supported languages.
-                          (https://orgmode.org/manual/Languages.html#Languages)"
     (let ((src-language (org-element-property :language src))
           (value (org-element-property :value src)))
       (when (string= src-language language)
