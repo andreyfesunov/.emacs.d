@@ -1,1 +1,1 @@
-/home/andreyfesunov/.emacs.d/config.org
+./config.org
