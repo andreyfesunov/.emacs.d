@@ -31,14 +31,14 @@ Using [[https://github.com/radian-software/straight.el][straight]] package manag
 
 #+begin_src emacs-lisp
   (straight-use-package '(evil :host github
-                		     :repo "emacs-evil/evil"))
+                    	     :repo "emacs-evil/evil"))
   (use-package evil
     :config (evil-mode t))
   (use-package evil-collection
     :after (evil)
     :straight (evil-collection :type git
-                		     :host github
-                		     :repo "emacs-evil/evil-collection"))
+                    	     :host github
+                    	     :repo "emacs-evil/evil-collection"))
 #+end_src
 *** my/edit-src-block, my/format-elisp-string, my/format-elisp-src-blocks
 
@@ -47,9 +47,9 @@ Functions to format elisp blocks in org-mode. Thanks to [[https://www.reddit.com
 #+begin_src emacs-lisp
   (defun my/edit-src-block (src fn language)
     "Replace SRC org-element's value property with the result of FN.
-                FN is a function that operates on org-element's value and returns a string.
-                LANGUAGE is a string referring to one of orb-babel's supported languages.
-                (https://orgmode.org/manual/Languages.html#Languages)"
+                    FN is a function that operates on org-element's value and returns a string.
+                    LANGUAGE is a string referring to one of orb-babel's supported languages.
+                    (https://orgmode.org/manual/Languages.html#Languages)"
     (let ((src-language (org-element-property :language src))
           (value (org-element-property :value src)))
       (when (string= src-language language)
@@ -65,7 +65,7 @@ Functions to format elisp blocks in org-mode. Thanks to [[https://www.reddit.com
         (emacs-lisp-mode)
         (insert 
          (replace-regexp-in-string "[[:space:]]*
-                [[:space:]]*)" ")" string))
+                    [[:space:]]*)" ")" string))
         (indent-region (point-min) (point-max))
         (buffer-substring (point-min) (point-max)))))
 
@@ -107,4 +107,25 @@ Functions to format elisp blocks in org-mode. Thanks to [[https://www.reddit.com
 #+begin_src emacs-lisp
   (setq auto-save-file-name-transforms
         `((".*" ,(expand-file-name "auto-save/" user-emacs-directory) t)))
+#+end_src
+*** Menu Bar
+
+#+begin_src emacs-lisp
+  (menu-bar-mode -1) 
+#+end_src
+*** Tool Bar
+
+#+begin_src emacs-lisp
+  (tool-bar-mode -1) 
+#+end_src
+*** Scroll Bar
+
+#+begin_src emacs-lisp
+  (toggle-scroll-bar -1)  
+#+end_src
+*** Line Numbers
+
+#+begin_src emacs-lisp
+  (setq display-line-numbers-type 'relative)
+  (global-display-line-numbers-mode 1) 
 #+end_src
